@@ -25,7 +25,6 @@ int desiredEncoderValue;
 int rotation = 0;
 float previousRotationSpeed = 0;
 int lastStateA;
-int currentStateA;
 int encoderValue = 0;
 int motorSpeed = 0;
 bool clockwise = true;
@@ -62,19 +61,6 @@ float updateEncoder(void) {
     return rotationSpeed;
   }
   delay(100);
-}
-
-void readEncoder() {
-  currentStateA = digitalRead(EncoderAPin);
-  if (currentStateA != lastStateA) {
-    if (digitalRead(EncoderBPin) != currentStateA) {
-      encoderValue++;
-    }
-    else {
-      encoderValue--;
-    }
-  }
-  lastStateA = currentStateA;
 }
 
 void changeDegree() {
